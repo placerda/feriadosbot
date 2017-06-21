@@ -1,0 +1,36 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: feriadosbot-deployment
+spec:
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        run: feriadosbot
+    spec:
+      containers:
+        - name: feriadosbot-container
+          #image: "feriadosbot:latest"
+          image: "registry.ng.bluemix.net/placerda/feriadosbot:latest"
+          imagePullPolicy: Always
+          resources:
+            requests:
+              cpu: "100m"
+            limits:
+              cpu: "250m"
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: feriadosbot-service
+  labels:
+    run: feriadosbot
+spec:
+  type: NodePort
+  selector:
+    run: feriadosbot
+  ports:
+   - protocol: TCP
+     port: 8080
+     nodePort: 30080

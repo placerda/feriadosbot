@@ -1,0 +1,15 @@
+applications:
+- name: feriadosbot
+  command: npm start
+  path: .
+  buildpack: sdk-for-nodejs
+  memory: 256M
+  instances: 1
+  services:
+  - placerda-conversation-standard
+  env:
+    NPM_CONFIG_PRODUCTION: false
+declared-services:
+  placerda-conversation-standard:
+    label: conversation
+    plan: standard

@@ -88,7 +88,7 @@ app.post('/api/facehook', function (req, res) {
      // you've successfully received the callback. Otherwise, the request
      // will time out and we will keep trying to resend.
     res.sendStatus(200);
-  // }
+   }
 });
 
 

@@ -1,3 +1,8 @@
+---
+declared-services:
+  placerda-conversation-standard:
+    label: conversation
+    plan: standard
 applications:
 - name: feriadosbot
   command: npm start
@@ -9,7 +14,3 @@ applications:
   - placerda-conversation-standard
   env:
     NPM_CONFIG_PRODUCTION: false
-declared-services:
-  placerda-conversation-standard:
-    label: conversation
-    plan: standard
